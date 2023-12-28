@@ -82,11 +82,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             captureImage = info[UIImagePickerController.InfoKey.originalImage]
                             as? UIImage
             
-            //포토라이브러리에 이미지 저장
+            //기기 라이브러리에 이미지 저장
             if flagImageSave {
                 UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
             }
             
+            //이미지 뷰어에 불러오거나 촬영한 이미지를 대입
             imgView.image = captureImage
         }
         
