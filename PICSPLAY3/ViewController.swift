@@ -100,6 +100,45 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func getMonochromeImage(_ sender: UIButton) {
+        guard let image = imgView.image else {
+            myAlert("No Image", message: "There is no image to apply the filter.")
+            return
+        }
+
+        let context = CIContext(options: nil)
+        guard let ciImage = CIImage(image: image) else { return }
+
+        if let filter = CIFilter(name: "CIPhotoEffectMono") {
+            filter.setValue(ciImage, forKey: kCIInputImageKey)
+
+            if let outputCIImage = filter.outputImage,
+               let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
+                let monochromeImage = UIImage(cgImage: cgImage)
+                
+
+
+
+                // Segue 수행하면서 데이터 전달
+                performSegue(withIdentifier: "showEditViewSegue", sender: monochromeImage)
+            }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEditViewSegue" {
+            if let destinationVC = segue.destination as? EditViewController {
+                if let monochromeImage = sender as? UIImage {
+                    destinationVC.imageToShow = monochromeImage
+                }
+            }
+        }
+    }
+    
+    
+    
+    
     //경고 표시용 매서드
     func myAlert(_ title : String, message: String){
         let alert = UIAlertController(title : title, message: message,
