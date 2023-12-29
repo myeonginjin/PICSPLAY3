@@ -23,6 +23,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="9oU-hL-TXB"/>
+                            <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="43" id="ELf-3r-7vN"/>
                             <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aAr-CD-4wy"/>
                             <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dYU-PP-1m7"/>
                             <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="y7v-ey-yCe"/>
