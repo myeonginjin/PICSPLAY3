@@ -48,7 +48,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         //카메라 기능 실행 실패일 경우 경고 표시 메서드 실행
         else {
-            myAlert("Camera inaccessable", message: "Application cannot access the camera.")
+            PicsplayAlert("Camera inaccessable", message: "Application cannot access the camera.")
         }
     }
     //사진 불러오기 버튼 액션함수
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         
         else{
-            myAlert("Photo album inaccessable", message: "Application cannot access the photo album.")
+            PicsplayAlert("Photo album inaccessable", message: "Application cannot access the photo album.")
         }
     }
     
@@ -102,34 +102,54 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func getMonochromeImage(_ sender: UIButton) {
+        
+        //이미지피커를 통해 사용자가 선택한 사진이 imgView객체에 담겨있는지 확인
         guard let image = imgView.image else {
-            myAlert("No Image", message: "There is no image to apply the filter.")
+            
+            //imgView객체에 이미지 데이터가 없을 경우 경고 모달창
+            PicsplayAlert("No Image", message: "There is no image to apply the filter.")
             return
         }
 
+        //Core Image의 프로세싱을 수행할 CIContext 생성
         let context = CIContext(options: nil)
+        
+        //immutable한 UIImage 객체를 편집하기 위해 CIImage 형식으로 변환
         guard let ciImage = CIImage(image: image) else { return }
 
+        //흑백필터를 적용하는 CIFilter 객체 CIPhotoEffectMono를 filter에 지정
         if let filter = CIFilter(name: "CIPhotoEffectMono") {
+            
+            //키값 kCIInputImageKey를 통해 ciImage를 입력이미지로 지정
             filter.setValue(ciImage, forKey: kCIInputImageKey)
 
+            //프로세싱이 완료된 출력이미지를 outputCIImage에 지정
             if let outputCIImage = filter.outputImage,
+               
+                //뷰어를 통해 나타내거나 파일에 저장할 수 있는 코어 그래픽 이미지 형식으로 렌더링
                let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
+                
+                //UIKit에서 사용할 수 있는 형식인 UIImage로 변환
                 let monochromeImage = UIImage(cgImage: cgImage)
                 
-
-
-
-                // Segue 수행하면서 데이터 전달
+                
+                //showEditViewSegue식별자를 가진 Segue를 트리거함과 동시에 monochromeImage객체를 전달하라고 명령
                 performSegue(withIdentifier: "showEditViewSegue", sender: monochromeImage)
             }
         }
     }
 
+    //Segue가 작동되기 전 호출되는 함수
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEditViewSegue" {
+            
+            //세그웨이의 목적지를 EditViewController로 옵셔널 타입으로 캐스팅한 후 destinationVC에 할당
             if let destinationVC = segue.destination as? EditViewController {
+                
+                //performSegue를 통해 sender에 담겨있던 monochromeImage객체를 UIImage로 옵셔널 타입 캐스팅 후 monochromeImage에 할당
                 if let monochromeImage = sender as? UIImage {
+                    
+                    //destinationVC에 할당되어 있는 EditViewController의 imageToShow 변수에 monochromeImage 객체를 할당
                     destinationVC.imageToShow = monochromeImage
                 }
             }
@@ -139,8 +159,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     
-    //경고 표시용 매서드
-    func myAlert(_ title : String, message: String){
+    //경고 모달창 매서드
+    func PicsplayAlert(_ title : String, message: String){
         let alert = UIAlertController(title : title, message: message,
                                       preferredStyle:  UIAlertController.Style.alert   )
         let action = UIAlertAction(title : "OK", style: UIAlertAction.Style.default,
