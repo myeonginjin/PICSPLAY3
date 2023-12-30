@@ -16,9 +16,10 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //세그웨이를 통해 imageToShow에 정상적으로 데이터가 담겨져 있는지 확인하기 위해 옵셔널바인딩
         if let image = imageToShow {
             
-            //전달받은 편집된 사진을 서브화면 이미지 뷰어에 띄움
+            //옵셔널 변수인 imageToShow이 nill값을 가지고 있지 않음을 확인했음으로, 이를 서브화면 이미지 뷰어에 띄움
             monochromeImage.image = image
         }
     }
