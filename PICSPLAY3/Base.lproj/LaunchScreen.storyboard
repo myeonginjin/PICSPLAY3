@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,13 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="B7s-Yf-3fi">
-                                <rect key="frame" x="0.0" y="279" width="393" height="173"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="B7s-Yf-3fi">
+                                <rect key="frame" x="113.33333333333333" y="342.66666666666669" width="166.66666666666669" height="166.66666666666669"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="9oU-hL-TXB"/>
+                            <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="43" id="ELf-3r-7vN"/>
+                            <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aAr-CD-4wy"/>
+                            <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dYU-PP-1m7"/>
+                            <constraint firstItem="B7s-Yf-3fi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="y7v-ey-yCe"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -32,8 +37,5 @@
     </scenes>
     <resources>
         <image name="Image" width="166.66667175292969" height="166.66667175292969"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

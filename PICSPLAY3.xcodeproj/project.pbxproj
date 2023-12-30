@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B5092532B3EEBF200BC5BED /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5092522B3EEBF200BC5BED /* EditViewController.swift */; };
 		1B57DC102B3CA41C00AB77ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B57DC0F2B3CA41C00AB77ED /* AppDelegate.swift */; };
 		1B57DC122B3CA41C00AB77ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B57DC112B3CA41C00AB77ED /* SceneDelegate.swift */; };
 		1B57DC142B3CA41C00AB77ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B57DC132B3CA41C00AB77ED /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B5092522B3EEBF200BC5BED /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		1B57DC0C2B3CA41C00AB77ED /* PICSPLAY3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PICSPLAY3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B57DC0F2B3CA41C00AB77ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B57DC112B3CA41C00AB77ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +62,9 @@
 			children = (
 				1B57DC0F2B3CA41C00AB77ED /* AppDelegate.swift */,
 				1B57DC112B3CA41C00AB77ED /* SceneDelegate.swift */,
-				1B57DC132B3CA41C00AB77ED /* ViewController.swift */,
 				1B57DC152B3CA41C00AB77ED /* Main.storyboard */,
+				1B5092522B3EEBF200BC5BED /* EditViewController.swift */,
+				1B57DC132B3CA41C00AB77ED /* ViewController.swift */,
 				1B57DC1B2B3CA41D00AB77ED /* Assets.xcassets */,
 				1B57DC1D2B3CA41D00AB77ED /* LaunchScreen.storyboard */,
 				1B57DC202B3CA41D00AB77ED /* Info.plist */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B5092532B3EEBF200BC5BED /* EditViewController.swift in Sources */,
 				1B57DC142B3CA41C00AB77ED /* ViewController.swift in Sources */,
 				1B57DC102B3CA41C00AB77ED /* AppDelegate.swift in Sources */,
 				1B57DC1A2B3CA41C00AB77ED /* PICSPLAY3.xcdatamodeld in Sources */,
@@ -296,6 +300,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42QF7Y2JLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PICSPLAY3/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -323,6 +328,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42QF7Y2JLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PICSPLAY3/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
