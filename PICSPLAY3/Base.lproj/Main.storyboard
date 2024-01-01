@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,17 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eGg-h0-P6I">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eGg-h0-P6I">
                                 <rect key="frame" x="16" y="103" width="361" height="715"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4G-vy-5Zb">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="238.33333333333334"/>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VkT-0g-8EH">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="715"/>
+                                        <rect key="frame" x="0.0" y="238.33333333333331" width="361" height="238.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xRe-ld-4oJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="715"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="238.33333333333334"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKV-0B-HIM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="715"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="238.33333333333334"/>
+                                                        <color key="tintColor" systemColor="tintColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="cameraBtn" title=""/>
                                                         <connections>
@@ -36,10 +41,11 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nRR-tL-8DM">
-                                                <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="715"/>
+                                                <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="238.33333333333334"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9f-N8-Vpk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="180.33333333333334" height="715"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="180.33333333333334" height="238.33333333333334"/>
+                                                        <color key="tintColor" systemColor="tintColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="AlbumBtn"/>
                                                         <connections>
@@ -50,11 +56,14 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xw-bs-H3n">
+                                        <rect key="frame" x="0.0" y="476.66666666666657" width="361" height="238.33333333333331"/>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eGg-h0-P6I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Fgf-kF-PR7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eGg-h0-P6I" secondAttribute="trailing" constant="16" id="RN0-9E-xJV"/>
@@ -79,22 +88,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0vj-ac-UAr">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h5J-v8-WGl">
+                                <rect key="frame" x="16" y="103" width="361" height="666"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LQ0-h4-S6C">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="466"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="466" id="WrV-Jm-f5s"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QaA-KV-ARw">
+                                        <rect key="frame" x="0.0" y="466" width="361" height="200"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwD-zJ-5Kr">
+                                                <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="200"/>
+                                                <color key="tintColor" systemColor="tintColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="wand.and.rays.inverse" catalog="system" symbolScale="large"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-wz-SzI">
+                                                <rect key="frame" x="120.33333333333334" y="0.0" width="120.33333333333334" height="200"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="rotate.right" catalog="system" symbolScale="large"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUs-6A-dwA">
+                                                <rect key="frame" x="240.66666666666671" y="0.0" width="120.33333333333334" height="200"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="photo.badge.arrow.down.fill" catalog="system" symbolScale="large"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WhD-W5-DoK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0vj-ac-UAr" firstAttribute="top" secondItem="WhD-W5-DoK" secondAttribute="top" id="TxD-2e-0QV"/>
-                            <constraint firstItem="WhD-W5-DoK" firstAttribute="bottom" secondItem="0vj-ac-UAr" secondAttribute="bottom" id="ZIl-Fm-W2r"/>
-                            <constraint firstItem="0vj-ac-UAr" firstAttribute="leading" secondItem="WhD-W5-DoK" secondAttribute="leading" id="wNA-Lf-U27"/>
-                            <constraint firstItem="WhD-W5-DoK" firstAttribute="trailing" secondItem="0vj-ac-UAr" secondAttribute="trailing" id="zWz-IC-ujC"/>
+                            <constraint firstItem="h5J-v8-WGl" firstAttribute="top" secondItem="WhD-W5-DoK" secondAttribute="top" id="8tD-92-tlo"/>
+                            <constraint firstItem="WhD-W5-DoK" firstAttribute="trailing" secondItem="h5J-v8-WGl" secondAttribute="trailing" constant="16" id="DMU-g6-bMM"/>
+                            <constraint firstItem="WhD-W5-DoK" firstAttribute="bottom" secondItem="h5J-v8-WGl" secondAttribute="bottom" id="IN8-XD-aSf"/>
+                            <constraint firstItem="h5J-v8-WGl" firstAttribute="leading" secondItem="WhD-W5-DoK" secondAttribute="leading" constant="16" id="dqx-He-l8q"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lF4-4G-1uD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="monochromeImgView" destination="LQ0-h4-S6C" id="roj-wU-alS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tjp-nI-vz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,8 +170,14 @@
     <resources>
         <image name="AlbumBtn" width="152" height="152"/>
         <image name="cameraBtn" width="152" height="152"/>
+        <image name="photo.badge.arrow.down.fill" catalog="system" width="128" height="97"/>
+        <image name="rotate.right" catalog="system" width="117" height="128"/>
+        <image name="wand.and.rays.inverse" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
