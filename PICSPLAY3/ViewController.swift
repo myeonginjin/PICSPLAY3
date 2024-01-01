@@ -12,7 +12,7 @@ import MobileCoreServices
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{ //델리게이트 프로토콜 추가
     
     //메인화면에 띄울 이미지 객체
-    @IBOutlet var imgView: UIImageView!
+    var imgView: UIImageView!
     
     //UIImagePickerController의 인스턴스 변수
     let imagePicker: UIImagePickerController! = UIImagePickerController()
@@ -44,7 +44,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             //편집 혀용 x
             imagePicker.allowsEditing = false
             
-            //현재 뷰컨트롤러를 imagePicker로 대체
+            
             present(imagePicker, animated: true, completion: nil)
         }
         
@@ -53,6 +53,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             PicsplayAlert("Camera inaccessable", message: "Application cannot access the camera.")
         }
     }
+    
+
     //사진 불러오기 버튼 액션함수
     @IBAction func btnLoadImageFromLibrary(_ sender: UIButton) {
         
@@ -63,7 +65,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
             imagePicker.mediaTypes = ["public.image"]
-            imagePicker.allowsEditing = true
+            imagePicker.allowsEditing = false
             
             present(imagePicker, animated: true, completion: nil)
         }
@@ -86,13 +88,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             captureImage = info[UIImagePickerController.InfoKey.originalImage]
                             as? UIImage
             
+            // 이미지 보정
+            let fixedImage = fixOrientation(img: captureImage)
+            
             //기기 라이브러리에 이미지 저장
             if flagImageSave {
-                UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
+                UIImageWriteToSavedPhotosAlbum(fixedImage, self, nil, nil)
             }
             
-            //이미지 뷰어에 불러오거나 촬영한 이미지를 대입
-            imgView.image = captureImage
+            //
+            performSegue(withIdentifier: "showEditViewSegue", sender: fixedImage)
         }
         
         //현재 뷰(이미지 피커) 제거
@@ -104,44 +109,23 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    @IBAction func getMonochromeImage(_ sender: UIButton) {
-        
-        //이미지피커를 통해 사용자가 선택한 사진이 imgView객체에 담겨있는지 확인
-        guard let image = imgView.image else {
-            
-            //imgView객체에 이미지 데이터가 없을 경우 경고 모달창
-            PicsplayAlert("No Image", message: "There is no image to apply the filter.")
-            return
+    // 세로 이미지 회전 문제 해결 함수
+    func fixOrientation(img: UIImage) -> UIImage {
+        if img.imageOrientation == .up {
+            return img
         }
 
-        //Core Image 프레임워크의 프로세싱(이미지 처리 결과 렌더링 및 이미지 분석)을 수행할 CIContext 생성
-        let context = CIContext(options: nil)
-        
-        //immutable한 UIImage 객체를 편집하기 위해 CIImage 형식으로 변환
-        guard let ciImage = CIImage(image: image) else { return }
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        img.draw(in: rect)
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
 
-        //흑백필터를 적용하는 CIFilter 객체 CIPhotoEffectMono를 filter에 지정
-        if let filter = CIFilter(name: "CIPhotoEffectMono") {
-
-            //키값 kCIInputImageKey를 통해 ciImage를 입력이미지로 지정
-            filter.setValue(ciImage, forKey: kCIInputImageKey)
-
-            //프로세싱이 완료된 출력이미지를 outputCIImage에 지정
-            if let outputCIImage = filter.outputImage,
-               
-                //뷰어를 통해 나타내거나 파일에 저장할 수 있는 UIImage로 변환하기 위해 우선 cgImage 형식으로 렌더링
-               let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
-                
-                //UIKit에서 사용할 수 있는 형식인 UIImage로 변환
-                let monochromeImage = UIImage(cgImage: cgImage)
-                
-                
-                //showEditViewSegue식별자를 가진 Segue를 트리거함과 동시에 monochromeImage객체를 전달하라고 명령
-                performSegue(withIdentifier: "showEditViewSegue", sender: monochromeImage)
-            }
-        }
+        return normalizedImage
     }
+    
+
+
 
     //Segue가 작동되기 전 호출되는 함수
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -151,15 +135,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             if let destinationVC = segue.destination as? EditViewController {
                 
                 //performSegue를 통해 sender에 담겨있던 monochromeImage객체를 UIImage로 옵셔널 타입 캐스팅 후 monochromeImage에 할당
-                if let monochromeImage = sender as? UIImage {
+                if let image = sender as? UIImage {
                     
                     //destinationVC에 할당되어 있는 EditViewController의 imageToShow 변수에 monochromeImage 객체를 할당
-                    destinationVC.imageToShow = monochromeImage
+                    destinationVC.imageToShow = image
                 }
             }
         }
     }
     
+
     
     
     
