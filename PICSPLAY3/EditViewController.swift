@@ -97,6 +97,9 @@ class EditViewController: UIViewController {
 
 
     func getGrayScaleUIImage(pData: UnsafePointer<UInt8> , image : UIImage) -> UIImage? {
+        
+        
+        
         let width = Int(image.size.width)
         let height = Int(image.size.height)
 
@@ -108,10 +111,14 @@ class EditViewController: UIViewController {
 
         // 픽셀 데이터로 사용할 메모리를 할당
         let rawdata = UnsafeMutablePointer<RGBAPixel>.allocate(capacity: width * height)
-        defer {
-            rawdata.deallocate()
-        }
-
+        
+        //메모리 누수 방지
+//        defer {
+//            rawdata.deallocate()
+//        }
+        
+          
+        
         for i in 0..<width * height {
             let gray = UInt8((Int(pData[i * bytesPerPixel]) + Int(pData[i * bytesPerPixel + 1]) + Int(pData[i * bytesPerPixel + 2])) / 3)
             rawdata[i] = RGBAPixel(red: gray, green: gray, blue: gray, alpha: pData[i * bytesPerPixel + 3])
@@ -178,5 +185,3 @@ class EditViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
-
