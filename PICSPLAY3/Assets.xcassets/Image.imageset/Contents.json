@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Fauget 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Fauget 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Fauget.png",
+      "filename" : "lmage.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
