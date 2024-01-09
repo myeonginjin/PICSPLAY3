@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "앨범 6.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "앨범.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "앨범 5.png",
+      "filename" : "AlbumBtn.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

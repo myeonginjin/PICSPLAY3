@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "제목을-입력해주세요_-001 (3) 3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "제목을-입력해주세요_-001 (3) 4.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "제목을-입력해주세요_-001 (3).png",
+      "filename" : "mainScreenLogo.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
