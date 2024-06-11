@@ -10,6 +10,6 @@
    
 * 기술스택 :
   * Xcode
-  * GitHub
+  * ios
 
 
