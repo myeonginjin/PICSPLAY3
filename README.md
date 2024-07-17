@@ -13,7 +13,8 @@
   * ios
  
 * **스크린샷 :**  </br></br>
-![simulator_screenshot_181F615E-842C-4AAA-B8EA-8D48DD45F213](https://github.com/user-attachments/assets/84ea8b57-53d0-4180-9f53-3dae8933f781)
+&nbsp;&nbsp;![이미지_2024 _7 _17 _오후_4 34__1_-removebg-preview](https://github.com/user-attachments/assets/2f568d85-c576-4ee7-b19d-378f573a6f62)
+
 
 
 
